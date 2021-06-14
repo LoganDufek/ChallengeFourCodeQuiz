@@ -1,0 +1,22 @@
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+    vertical-align: middle;
+    font-size: 10px;
+}
+
+
+.timer a {
+    margin-top: 15px;
+    text-decoration: none;
+    color: rgb(209, 20, 246);
+    font-size: 20px;
+}
+
+main {
+    font-size: 40px;
+    margin: 70px 250px;
+    text-align: center;
+}
