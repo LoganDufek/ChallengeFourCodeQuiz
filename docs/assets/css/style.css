@@ -62,3 +62,64 @@ main p {
     color: white;
     border-radius: 10px;
 }
+
+.answers button:hover{
+    background-color: #c20ba3;
+}
+
+ .btn {
+    background-color: #351c75;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.btn:hover{
+    background-color: #c20ba3;
+}
+
+.all-done {
+    text-align: left;
+}
+
+.your-score {
+    text-align: left;
+}
+
+.score-line {
+    display: flex;
+    justify-content: left;
+    align-content: center;
+   
+    
+}
+
+.score-line p {
+    margin-bottom: 0px;
+    
+}
+
+.score-line .btn {
+    font-size: 15px;
+    text-align: center;
+    padding: 5px 10px;
+    
+}
+
+.enter-score {
+    padding-right: 20px;
+    margin-left: 10px;
+}
+
+.text-input {
+    width: 200px;
+    padding: 5px 10px;
+}
+.initials {
+    display: flex;
+    vertical-align: middle;
+    padding-right: 10px;
+    padding-top: 5px;
+}
