@@ -23,6 +23,7 @@
 main {
     margin: 70px 250px 0px 250px;
     text-align: center;
+    
 }
 
 main h2 {
@@ -31,7 +32,7 @@ main h2 {
 }
 
 main p {
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 15px;
 }
 
@@ -39,11 +40,18 @@ main p {
     text-align: left;
 }
 
+.NewQ {
+    margin-right: 200px;
+    padding-left: 650px;
+    font-size: 30px;
+}
+
 .answers {
     display: flex;
     justify-content: left;
     width: 50%;
     flex-wrap: wrap;
+    
 }
 .answers button{
     font-family:Arial, Helvetica, sans-serif;
@@ -54,14 +62,15 @@ main p {
     text-align: left;
     padding-left: 20px;
     padding-right: 20px;
-    align-items: left;
     display: inline-flex;
+    justify-content: left;
     flex-wrap: nowrap;
-    width: 100%;
+    width: 70%;
     font-size: 25px;
     color: white;
     border-radius: 10px;
 }
+
 
 .answers button:hover{
     background-color: #c20ba3;
@@ -81,19 +90,25 @@ main p {
 }
 
 .all-done {
+    display: inline-flex;
+    align-content: center;
     text-align: left;
+    padding-right: 280px;
 }
 
 .your-score {
+    display: inline-flex;
+    align-content: center;
     text-align: left;
+    padding-right: 260px;
+    font-size: 20px;
 }
 
 .score-line {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-content: center;
-   
-    
+    padding-right: 20px;
 }
 
 .score-line p {
@@ -109,6 +124,7 @@ main p {
 }
 
 .enter-score {
+    padding-top: 3px;
     padding-right: 20px;
     margin-left: 10px;
 }
@@ -122,4 +138,89 @@ main p {
     vertical-align: middle;
     padding-right: 10px;
     padding-top: 5px;
+}
+
+.submit-button {
+    padding-top: 1px;
+}
+
+
+
+.NewQTitle {
+    padding-right: 250px;
+}
+
+.RightorWrong {
+ display: inline-flex;
+ justify-content: center;
+ padding-top: 20px;
+ margin-left: 650px;
+}
+
+.right h2{
+    padding-right: 350px;
+    color: green;
+    border-top: green solid 2px;
+    text-align: left;
+    font-size: 30px;
+    
+}
+
+.wrong h2{
+    padding-right: 350px;
+    color: rgb(240, 0, 0);
+    border-top: rgb(231, 8, 0) solid 2px;
+    text-align: left;
+    font-size: 30px;
+}
+
+
+/* Styling for Index Ends Here */
+
+
+/* Styling for High Score Page Begins Here */
+
+.high-scores {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.high-score-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.high-score-section {
+    font-size: 30px;
+    margin: 100px 250px 0px 250px;
+    text-align: center;
+    
+}
+
+.go-back, .clear-high-scores {
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 10px 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #351c75;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    color: white;
+    border-radius: 10px;
+
+}
+
+.btn-form {
+    padding-right: 10px;
+}
+
+.go-back:hover, .clear-high-scores:hover {
+    background-color: #c20ba3;
 }

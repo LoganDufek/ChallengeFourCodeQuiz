@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <main id = "#main">
+    <main id = "#main" class="main">
         <section class="QuizIntro" id="#quizIntro">
             <h2 id = "#QuizQuestions" class="QuizQuestions">
             Coding Quiz Challenge</h2>
@@ -26,22 +26,38 @@
         <div class="QuizButton" id="#QuizButton">
             <button id="start" class="btn" >Start Quiz!</button>
           </div>
-          <div class="answers">
+           
+       </main>
 
-          </div>
-          <div class="score-line">
+       <section class =activeQuiz>
+              <div class= "NewQ">
+                <h2 class = NewQTitle></h2>
+                    <div class="answers">
+
+                     </div>
+                    
+              </div>
+                  <div class="score-line">
               <div class="your-name">
               </div>
               <form class="enter-score"></form>
               <div class ="submit-button"></div>
 
-          </div>
-          <!-- <div class="SpeedUpTimer">
-            <button id="speed" class="btn">Speed Up!</button>
-          </div> -->
+                </div>      
+              
+                
+         </section>     
+         <section class = "RightorWrong">
+            <div class="right">
+                    
+                </div>
+            <div class="wrong">
+                
+                </div>
+        </section>
 
 
-    </main>
+   
 
 
     <script src="./assets/js/script.js"></script>

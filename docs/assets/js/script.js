@@ -7,6 +7,10 @@ var mainEl = document.getElementById('main');
 var quizQuestions = document.getElementsByClassName('QuizQuestions');
 var quizStartEl = document.getElementById('quizIntro');
 var quizAnswers = document.getElementsByClassName('answers');
+var right = document.getElementsByClassName("right")
+var wrong = document.getElementsByClassName("wrong")
+
+
 var questions = [{
   question: "Commonly used data types do NOT include:",
   answers: {
@@ -45,6 +49,8 @@ var questions = [{
 userAnswer = "";
 currentQuestion = 0;
 
+//Quiz Timer that Counts Down After Button Click
+
 function QuizTimer() {
 
 
@@ -65,67 +71,44 @@ function QuizTimer() {
   }, 1000);
 }
 
+//Function that is invoked to reduce the time/score if the user answers the question incorrectly. 
 function reduceTime() {
   timeLeft = timeLeft - 10;
 }
 
+
 function startQuiz() {
+  //CurrentQuestion variale set at 0 to iterate through the questions array. Also ensures whenever the page is reset that the array will begin at 0
   currentQuestion = 0;
 
-  //First step, remove existing html elements
+  //Remove existing html elements
 
   buttonEl.textContent = ""
   buttonEl.remove();
   document.querySelector(".QuizQuestions").innerHTML = "";
   document.querySelector(".intro-p").innerHTML = "";
   document.querySelector(".answers").innerHTML = "";
+  //Trigger create quiz function
   createQuiz();
 
 
 
-
-
 }
+//Function that triggers if the timer hits 0 before all questions are answered 
 function displayMessage(){
-  document.querySelector(".QuizQuestions").innerHTML = "";
+  document.querySelector(".NewQTitle").innerHTML = "";
   document.querySelector(".answers").innerHTML = "";
-  displayHighScore()
+  displayHighScore();
 }
 
-//Functions for each check answer depending on what the user inputs
-function checkAnswer() {
-
-  if (this.textContent === questions[currentQuestion].correctAnswer){
-
-    console.log("Right")
-  }
-  else {
-    reduceTime()
-    console.log("Wrong")
-  }
-
-  document.querySelector(".QuizQuestions").innerHTML = "";
-  document.querySelector(".answers").innerHTML = "";
-  currentQuestion++;
-  if (currentQuestion < questions.length){
-    createQuiz();
-
-  }
-  else {
-    displayHighScore();
-    
-  }
-}
-
-
-//Step 2, create for loop to build dynamic HTML elements from the questions array
+//Function that dynamically generates HTML elements in the DOM based on the iteration of the array
 function createQuiz() {
   answer = questions[currentQuestion].correctAnswer;
 
   var newDiv = document.createElement('div')
   newDiv.className = "new-question";
   newDiv.textContent = questions[currentQuestion].question;
-  document.querySelector(".QuizQuestions").appendChild(newDiv);
+  document.querySelector(".NewQTitle").appendChild(newDiv);
 
   var answerOne = document.createElement('button')
   answerOne.classList = "btn"
@@ -148,7 +131,7 @@ function createQuiz() {
   document.querySelector(".answers").appendChild(answerFour);
 
 
-  //Step Three, Track for when user clicks on and sets the userAnswer to that selection
+//Event listeners added to check for a click of each buttion and then will check to see if the answer is correct. 
   answerOne.addEventListener("click", checkAnswer);
   answerTwo.addEventListener("click", checkAnswer);
   answerThree.addEventListener("click", checkAnswer);
@@ -156,9 +139,51 @@ function createQuiz() {
 
 };
 
-  function displayHighScore() {
-
+//Function that checks the uswer answer vs the stored correct answer in the array
+function checkAnswer() {
+  document.querySelector(".right").innerHTML = ""
+  document.querySelector(".wrong").innerHTML = ""
+ 
+ 
+ 
   
+  if (this.textContent === questions[currentQuestion].correctAnswer){
+
+      
+    document.querySelector(".right").innerHTML = "<h2> Right </h2>"
+      right.className = "right-answer"
+      
+  }
+  else {
+    reduceTime();
+    
+    
+    document.querySelector(".wrong").innerHTML = "<h2> Wrong </h2>"
+    wrong.className = "wrong-answer"
+    
+
+  }
+
+
+
+  //Regardless of answer, the code will unbuild the existing HTML elemts, clearing them for the next iteration of the array
+  document.querySelector(".NewQTitle").innerHTML = "";
+  document.querySelector(".answers").innerHTML = "";
+  //CurrentQuestions Variable is incrased by 1 each time this is run so the quiz will correctly move on to the next question and answer se
+  currentQuestion++;
+  //An if statement is invoked to check if the currentQuestion variable has reached the length of the questions array. If it hasn't the createQuiz function again, sucessfully rebuilding the next question and answer set. Otherwise, the displayHighScore function is run, which builds new HTML elements for the user to enter their score. 
+  if (currentQuestion < questions.length){
+    createQuiz();
+
+  }
+  else {
+    displayHighScore();
+    
+  }
+}
+
+//Function to run when the quiz is over. Builds elements for user to enter their score and save it to localStorage
+function displayHighScore() {
 
   var allDone = document.createElement('div')
         allDone.className = "all-done";
@@ -191,32 +216,3 @@ function createQuiz() {
 
   document.getElementById("start").addEventListener("click", QuizTimer);
   document.getElementById("start").addEventListener("click", startQuiz);
-
-
-
-
-
-
-  //if (answerOne.addEventListener("click", checkAnswer1)){
-   // var userAnswer = questions[i].answers.a
-
-  // } 
-
-   //else if (answerTwo.addEventListener("click", checkAnswer2)){
-   // var userAnswer = questions[i].answers.b
-
-   //} 
-   //else if (answerThree.addEventListener("click", checkAnswer3)){
-   // var userAnswer = questions[i].answers.c
-
-  // } 
-  // else if (answerFour.addEventListener("click", checkAnswer4)){
-   // var userAnswer = questions[i].answers.d
-
-  // } 
-
-   //if (userAnswer === answer){
-   //   console.log("right")
-  // }
-
-  //  }
