@@ -7,10 +7,10 @@ var mainEl = document.getElementById('main');
 var quizQuestions = document.getElementsByClassName('QuizQuestions');
 var quizStartEl = document.getElementById('quizIntro');
 var quizAnswers = document.getElementsByClassName('answers');
-var right = document.getElementsByClassName("right")
-var wrong = document.getElementsByClassName("wrong")
+var right = document.getElementsByClassName("right");
+var wrong = document.getElementsByClassName("wrong");
 
-
+// Array of questions and answer options 
 var questions = [{
   question: "Commonly used data types do NOT include:",
   answers: {
@@ -23,25 +23,47 @@ var questions = [{
   
 },
 {
-  question: "The Best Dog Type Is:",
+  question: "The condition in an if/else statment is enclosed with _________.",
   answers: {
-    a: '1: Westie',
-    b: '2: Beagle',
-    c: '3: Dalmation',
-    d: '4: Corgie'
+    a: '1: quotes',
+    b: '2: curley brackets',
+    c: '3: parenthesis',
+    d: '4: square brackets'
   },
-  correctAnswer: '1: Westie'
+  correctAnswer: '3: parenthesis'
 
 },
 {
-  question: "The Best LaCroix Flavor Is:",
+  question: "Arrays in Javascript can be used to store __________.",
   answers: {
-    a: '1: Plain',
-    b: '2: Key Lime',
-    c: '3: Lemon',
-    d: '4: Coconut'
+    a: '1: numbers and strings',
+    b: '2: other arrays',
+    c: '3: booleans',
+    d: '4: all of the above'
   },
-  correctAnswer: '2: Key Lime'
+  correctAnswer: '4: all of the above'
+
+},
+{
+  question: "String values must be enclosed within ______ when being assigned into variables.",
+  answers: {
+    a: '1: commas',
+    b: '2: curly brackets',
+    c: '3: quotes',
+    d: '4: parenthesis'
+  },
+  correctAnswer: '3: quotes'
+
+},
+{
+  question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+  answers: {
+    a: '1: Javascript',
+    b: '2: terminal/bash',
+    c: '3: for loops',
+    d: '4: console.log'
+  },
+  correctAnswer: '4: console.log'
 
 }
 ];
@@ -209,10 +231,32 @@ function displayHighScore() {
         submit.classList = "btn"
         submit.textContent = "Submit";
         document.querySelector(".submit-button").appendChild(submit);
-  
-        timeLeft = "Time: " + timeLeft;
+        document.querySelector(".submit-button").addEventListener("click", gatherHighScore);
+      
+       finalSocre = timeLeft;
+       timeLeft = "Time: " + timeLeft;
+        
 
   };
+
+//Function that gathers the high scores and sends the user to the page with them
+  function gatherHighScore() {
+    
+    var yourInitials = document.querySelector(".text-input").value;
+    location.href = "./highscores.html"
+
+    
+    var userScore = [
+      yourInitials + " - " +
+      finalSocre
+    ]
+    // Sets the above array to local storage. There is a way to make this not overwirite the value each time but I have been unable to find it
+    localStorage.setItem('Scores', JSON.stringify(userScore));
+
+    
+  };
+
+  // Event listeners waiting to trigger both functions when the user clicks the start button
 
   document.getElementById("start").addEventListener("click", QuizTimer);
   document.getElementById("start").addEventListener("click", startQuiz);

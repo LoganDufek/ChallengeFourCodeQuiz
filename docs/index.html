@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,60 +8,69 @@
     <title>Code Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
+
 <body>
+    <!-- Section for the Highscore link and timer-->
     <div class="timer" id="#timer">
         <a href="./highscores.html">View High Scores</a>
-        <div >
-            <h1 id="timeremaining" >Time: 0</h1>
+        <div>
+            <h1 id="timeremaining">Time: 0</h1>
         </div>
     </div>
 
-    <main id = "#main" class="main">
+     <!-- Intro section -->
+    <main id="#main" class="main">
         <section class="QuizIntro" id="#quizIntro">
-            <h2 id = "#QuizQuestions" class="QuizQuestions">
-            Coding Quiz Challenge</h2>
-            <p class = "intro-p">
-                Try to answer the following code related questions within the time limit. Keep in mind that wrong answers will reduce your time/score by 10.
+            <h2 id="#QuizQuestions" class="QuizQuestions">
+                Coding Quiz Challenge</h2>
+            <p class="intro-p">
+                Try to answer the following code related questions within the time limit. Keep in mind that wrong
+                answers will reduce your time/score by 10.
             </p>
         </section>
         <div class="QuizButton" id="#QuizButton">
-            <button id="start" class="btn" >Start Quiz!</button>
-          </div>
-           
-       </main>
+            <button id="start" class="btn">Start Quiz!</button>
+        </div>
 
-       <section class =activeQuiz>
-              <div class= "NewQ">
-                <h2 class = NewQTitle></h2>
-                    <div class="answers">
+    </main>
+    <!-- Section where the Questions and Answer options will be dynamically generated using Javascript -->
+    <section class=activeQuiz>
+        <div class="NewQ">
+            <h2 class=NewQTitle></h2>
+            <div class="answers">
 
-                     </div>
-                    
-              </div>
-                  <div class="score-line">
-              <div class="your-name">
-              </div>
-              <form class="enter-score"></form>
-              <div class ="submit-button"></div>
+            </div>
 
-                </div>      
-              
-                
-         </section>     
-         <section class = "RightorWrong">
-            <div class="right">
-                    
-                </div>
-            <div class="wrong">
-                
-                </div>
-        </section>
+        </div>
+    <!-- Section that appears after the quiz finishes. Elements also dynamically generated using the DOM and Javascript -->
+        <div class="score-line">
+            <div class="your-name">
+            </div>
+            <form class="enter-score"></form>
+            <div class="submit-button"></div>
+
+        </div>
 
 
-   
+    </section>
 
+    <!-- Section to display wether the answer was right or wrong to the user -->
+    <section class="RightorWrong">
+        <div class="right">
+
+        </div>
+        <div class="wrong">
+
+        </div>
+    </section>
+
+
+
+    <!-- Linking of Javascript for Index -->
 
     <script src="./assets/js/script.js"></script>
-    
+
 </body>
+
 </html>

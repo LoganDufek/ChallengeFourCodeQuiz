@@ -138,6 +138,7 @@ main p {
     vertical-align: middle;
     padding-right: 10px;
     padding-top: 5px;
+    font-size: 15px;
 }
 
 .submit-button {
@@ -181,11 +182,11 @@ main p {
 /* Styling for High Score Page Begins Here */
 
 .high-scores {
-
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+    padding-bottom: 10px;
 }
 
 .high-score-buttons {
@@ -223,4 +224,19 @@ main p {
 
 .go-back:hover, .clear-high-scores:hover {
     background-color: #c20ba3;
+}
+
+.stored-high-scores {
+   text-align: left; 
+   padding-left: 320px;
+   padding-right: 330px;
+}
+
+.stored-high-scores ul:nth-child( odd ) {
+    
+    background-color: rgba(121, 0, 208, 0.625);
+
+}
+.stored-high-scores li{
+    list-style:none;
 }
